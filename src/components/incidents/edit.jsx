@@ -8,6 +8,18 @@ import { useNavigate, useParams  } from 'react-router-dom'
 
 export default function Create() {
     const navigate = useNavigate();
+    const handleSubmit = (event) => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+    
+        setValidated(true);
+        updateData(event)
+      };
+
+    const [validated, setValidated] = useState(false);
 
     const { id } = useParams()
 
@@ -90,18 +102,35 @@ export default function Create() {
                         </div>
                     )
                     }
-                    <Form>
+                    <Form noValidate validated={validated} onSubmit={handleSubmit}>
                         <Form.Group className="mb-3">
                             <Form.Label>Título</Form.Label>
-                            <Form.Control type="text" name="title" value={title} onChange={(e) => setTitle(e.target.value)}/>
+                            <Form.Control 
+                                type="text" 
+                                name="title" 
+                                value={title} onChange={(e) => setTitle(e.target.value)}
+                                required
+                            />
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>Descrição</Form.Label>
-                            <Form.Control as="textarea" name="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
+                            <Form.Control 
+                                as="textarea" 
+                                name="description" 
+                                value={description} 
+                                onChange={(e) => setDescription(e.target.value)}
+                                required
+                            />
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>Criticidade</Form.Label>
-                            <Form.Select name="criticality" value={criticality} onChange={(e) => setCriticality(e.target.value)}>
+                            <Form.Select 
+                                name="criticality" 
+                                value={criticality} 
+                                onChange={(e) => setCriticality(e.target.value)}
+                                required
+                            >
+                                <option value=""></option>
                                 <option value="Alta">Alta</option>
                                 <option value="Média">Média</option>
                                 <option value="Baixa">Baixa</option>
@@ -109,7 +138,12 @@ export default function Create() {
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>Tipo</Form.Label>
-                            <Form.Select name="type" value={type} onChange={(e) => setType(e.target.value)}>
+                            <Form.Select 
+                                name="type" 
+                                value={type} 
+                                onChange={(e) => setType(e.target.value)}
+                                required
+                            >
                                 <option value="Alarme">Alarme</option>
                                 <option value="Incidente">Incidente</option>
                                 <option value="Outro">Outro</option>
@@ -117,13 +151,19 @@ export default function Create() {
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>Ativo</Form.Label>
-                            <Form.Select name="status" value={status} onChange={(e) => setStatus(e.target.value)}>
+                            <Form.Select 
+                                name="status" 
+                                value={status} 
+                                onChange={(e) => setStatus(e.target.value)}
+                                defaultValue="1"
+                                required
+                            >
                                 <option value="1">Sim</option>
                                 <option value="0">Não</option>
                             </Form.Select>
                         </Form.Group>
                         <Form.Group className="mt-3">
-                            <Button variant="primary" onClick={updateData}>
+                            <Button type="submit" variant="primary">
                                 Atualizar
                             </Button>
                         </Form.Group>
