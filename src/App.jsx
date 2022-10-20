@@ -9,6 +9,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { BrowserRouter as Router , Routes, Route, Link } from "react-router-dom";
 
 import CreateIncident from './components/incidents/create';
+import EditIncident from './components/incidents/edit';
 import ListIncident from './components/incidents/list';
 
   function App() {
@@ -27,7 +28,7 @@ import ListIncident from './components/incidents/list';
           <Col md={12}>
             <Routes>
               <Route path="/incidents/create" element={<CreateIncident />} />
-              {/* <Route path="/product/edit/:id" element={<EditProduct />} /> */}
+              <Route path="/incidents/edit/:id" element={<EditIncident />} />
               <Route exact path='/' element={<ListIncident />} />
             </Routes>
           </Col>

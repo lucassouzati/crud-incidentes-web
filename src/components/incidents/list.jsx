@@ -20,13 +20,13 @@ export default function List() {
 
     const deletIncident = async (id) => {
         const isConfirm = await Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: 'Você tem certeza disso?',
+            text: "Deseja realmente excluir esse registro?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Sim, tenho certeza'
           }).then((result) => {
             return result.isConfirmed
           });
@@ -38,7 +38,7 @@ export default function List() {
           await axios.delete(`http://localhost/api/incidents/${id}`).then(({data})=>{
             Swal.fire({
                 icon:"success",
-                text:data.message
+                text:"Incidente excluído com sucesso!"
             })
             fetchIncidents()
           }).catch(({response:{data}})=>{
@@ -82,11 +82,11 @@ export default function List() {
                                                 <td>{row.type}</td>
                                                 <td>{row.status}</td>
                                                 <td>
-                                                    {/* <Link to={`/incidents/edit/${row.id}`} className='btn btn-success me-2'>
-                                                        Edit
-                                                    </Link> */}
+                                                    <Link to={`/incidents/edit/${row.id}`} className='btn btn-success me-2'>
+                                                        Editar
+                                                    </Link>
                                                     <Button variant="danger" onClick={()=>deletIncident(row.id)}>
-                                                        Delete
+                                                        Deletar
                                                     </Button>
                                                 </td>
                                             </tr>
