@@ -15,23 +15,29 @@ import ListIncident from './components/incidents/list';
   function App() {
     return (
     <Router>
-      <Navbar bg="primary">
-        <Container>
-          <Link to={"/"} className="navbar-brand text-white">
-            Cadastro de Incidentes
-          </Link>
-        </Container>
-      </Navbar>
-
-      <Container className="mt-5">
+      <Container>
         <Row>
-          <Col md={12}>
-            <Routes>
-              <Route path="/incidents/create" element={<CreateIncident />} />
-              <Route path="/incidents/edit/:id" element={<EditIncident />} />
-              <Route exact path='/' element={<ListIncident />} />
-            </Routes>
-          </Col>
+          <Col sm={12} lg={10}>
+            <Navbar bg="black">
+              <Container>
+                <Link to={"/"} className="navbar-brand text-white">
+                  Cadastro de Incidentes
+                </Link>
+              </Container>
+            </Navbar>
+
+            <Container className="mt-5">
+              <Row>
+                <Col md={12}>
+                  <Routes>
+                    <Route path="/incidents/create" element={<CreateIncident />} />
+                    <Route path="/incidents/edit/:id" element={<EditIncident />} />
+                    <Route exact path='/' element={<ListIncident />} />
+                  </Routes>
+                </Col>
+              </Row>
+            </Container>
+            </Col>
         </Row>
       </Container>
     </Router>);

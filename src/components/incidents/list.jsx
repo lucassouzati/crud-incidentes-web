@@ -3,17 +3,19 @@ import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button'
 import axios from 'axios';
 import Swal from 'sweetalert2'
+import setupApiClient from "../../services/api";
 
 export default function List() {
 
     const [incidents, setIncidents] = useState([])
+    const apiClient = setupApiClient();
 
     useEffect(()=>{
         fetchIncidents() 
     },[])
 
     const fetchIncidents = async () => {
-        await axios.get(`http://localhost/api/incidents`).then(({data})=>{
+        await apiClient.get(`/incidents`).then(({data})=>{
             setIncidents(data.data)
         })
     }
@@ -35,7 +37,7 @@ export default function List() {
             return;
           }
 
-          await axios.delete(`http://localhost/api/incidents/${id}`).then(({data})=>{
+          await apiClient.delete(`/incidents/${id}`).then(({data})=>{
             Swal.fire({
                 icon:"success",
                 text:"Incidente excluído com sucesso!"
@@ -54,7 +56,7 @@ export default function List() {
           <div className="row">
             <div className='col-12'>
                 <Link className='btn btn-primary mb-2 float-end' to={"/incidents/create"}>
-                    Cadastrar Incidente
+                    Cadastrar
                 </Link>
             </div>
             <div className="col-12">
