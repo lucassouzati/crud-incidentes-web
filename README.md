@@ -3,7 +3,7 @@
 </h1>
 
 ## 🛥️ Sobre o projeto
-Esse sistema trata-se de um da versão web para o gerenciamento de incidentes. Ele se comunica com outro sistema backend e realiza as operações básicas para cadastro, listagem, edição e exclusão de (incidents). 
+Esse sistema trata-se de um da versão web para o gerenciamento de incidentes. Ele se comunica com outro sistema backend e realiza as operações básicas para cadastro, listagem, edição e exclusão de "incidents". 
 
 ## 🏗️ Tecnologias:
 - **[React](https://pt-br.reactjs.org/)**
@@ -24,16 +24,39 @@ Acesse o site pelo localhost na porta 5174, ou a porta que for escolhida para ex
 ```
 http://localhost:5174/
 ```
+A aplicação reconhece a URL "http://localhost/api" como base de todos endpoints da API. Mas caso seja necessário trabalhar com outra URL, basta apenas alterar a URL base no arquivo ./src/services/api.jsx:
+```jsx
+import axios from 'axios'
+
+export default function setupApiClient(){
+    const api = axios.create({
+        baseURL: 'http://localhost/api',
+      })
+
+      return api
+}
+```
 ## 🪟 Layout
 Os registros estão sendo listados numa tabela, com um botão para Editar e Excluir. 
-(img)
-Através do botão "Cadastrar", é mostrado um formulário para preenchimento de novas informações. 
-(img)
-A validação foi implementada tanto na API como nas propriedades de validação dos componentes. Com o auxílio das classes de estilização do Bootstrap, os campos inválidos são destacados.
-(img)
-Foi utilizado a biblioteca sweetalert2 para emitir alertas estilizados para o usuário.
-(img)
+<h4 align="center">
+    <img title="Tabela com a listagem de incidentes" src=".github/readme/incidents-web-list.png" width="800px" />
+</h4>
 
+Através do botão "Cadastrar", é mostrado um formulário para preenchimento de novas informações. 
+<h4 align="center">
+    <img title="Formulário de cadastro de incidentes" src=".github/readme/incidents-web-create.png" width="800px" />
+</h4>
+
+A validação foi implementada tanto na API como nas propriedades de validação dos componentes. Com o auxílio das classes de estilização do Bootstrap, os campos inválidos são destacados. Além disso, ele abstrai a responsividade através das grids.
+<h4 align="center">
+    <img title="Formulário de cadastro de incidentes com validação e responsividade" src=".github/readme/incidents-web-create-validation.png" width="600px" />
+</h4>
+
+Foi utilizado a biblioteca sweetalert2 para emitir alertas estilizados para o usuário.
+<h4 align="center">
+    <img title="Exemplo de sweetalert para cadastro com sucesso" src=".github/readme/incidents-web-sweet-alert-created.png" width="400x" />
+    <img title="Exemplo de sweetalert para exclusão com sucesso" src=".github/readme/incidents-web-delete.png" width="400px" />
+</h4>
 
 ## 🤔 Como contribuir para o projeto
 
