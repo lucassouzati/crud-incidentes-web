@@ -45,7 +45,6 @@ export default function Create() {
         formData.append('criticality', criticality)
         formData.append('type', type)
         formData.append('status', status)
-        console.log(status)
 
         await apiClient.post(`/incidents`, formData).then(({data})=>{ 
             Swal.fire({
