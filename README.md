@@ -1,5 +1,5 @@
 <h1 align="center">
-    Cadastro de Incidents Web (Front-end)
+    Cadastro de Incidentes Web (Front-end)
 </h1>
 
 ## 🛥️ Sobre o projeto
@@ -12,7 +12,7 @@ Esse sistema trata-se de um da versão web para o gerenciamento de incidentes. E
 - **[sweetalert2](https://sweetalert2.github.io/)**
 
 ## 🚀 Como rodar esse projeto
-Primeiramente, clone este projeto aonde você costuma desenvolver seus projetos:
+Primeiramente, clone este repositório aonde você costuma desenvolver seus projetos:
 ```
 git clone git@github.com:lucassouzati/crud-incidentes-web.git
 ```
