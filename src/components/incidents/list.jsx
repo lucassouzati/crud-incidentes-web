@@ -82,7 +82,7 @@ export default function List() {
                                                 <td>{row.description}</td>
                                                 <td>{row.criticality}</td>
                                                 <td>{row.type}</td>
-                                                <td>{row.status}</td>
+                                                <td>{row.active}</td>
                                                 <td>
                                                     <Link to={`/incidents/edit/${row.id}`} className='btn btn-success me-2'>
                                                         Editar

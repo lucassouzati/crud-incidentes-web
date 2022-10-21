@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import BootstrapSwitchButton from 'bootstrap-switch-button-react'
 import { useNavigate, useParams  } from 'react-router-dom'
 import setupApiClient from "../../services/api";
 
@@ -48,6 +49,7 @@ export default function Create() {
           setCriticality(criticality)
           setType(type)
           setStatus(status)
+          console.log(status)
         }).catch(({response:{data}})=>{
           Swal.fire({
             text:data.message,
@@ -151,21 +153,21 @@ export default function Create() {
                                 >
                                     <option value="Alarme">Alarme</option>
                                     <option value="Incidente">Incidente</option>
-                                    <option value="Outro">Outro</option>
+                                    <option value="Outros">Outros</option>
                                 </Form.Select>
                             </Col>
                             <Col md={12} lg={4}>
-                                <Form.Label>Ativo</Form.Label>
-                                <Form.Select 
-                                    name="status" 
-                                    value={status} 
-                                    onChange={(e) => setStatus(e.target.value)}
-                                    defaultValue="1"
-                                    required
-                                >
-                                    <option value="1">Sim</option>
-                                    <option value="0">Não</option>
-                                </Form.Select>
+                            <Form.Label>Status</Form.Label>
+                                <br/>
+                                <BootstrapSwitchButton
+                                    value={status}
+                                    checked={status}
+                                    onlabel='Ativo'
+                                    onChange={(e) => {
+                                        setStatus( e )
+                                    }}
+                                    size="sm"
+                                />
                             </Col>
                             </Row>
                         </Form.Group>

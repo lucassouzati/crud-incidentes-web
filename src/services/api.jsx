@@ -1,4 +1,4 @@
-import axios, { AxiosError } from 'axios'
+import axios from 'axios'
 
 export default function setupApiClient(){
     const api = axios.create({
