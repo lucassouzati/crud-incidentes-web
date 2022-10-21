@@ -9,23 +9,30 @@ Esse sistema trata-se de um da versão web para o gerenciamento de incidentes. E
 - **[React](https://pt-br.reactjs.org/)**
 - **[Vite](https://vitejs.dev/)**
 - **[React Bootstrap](https://react-bootstrap.github.io/)**
+- **[sweetalert2](https://sweetalert2.github.io/)**
 
 ## 🚀 Como rodar esse projeto
 Primeiramente, clone este projeto aonde você costuma desenvolver seus projetos:
 ```
 git clone git@github.com:lucassouzati/crud-incidentes-web.git
 ```
-Certifique-se que esteja com seu ambiente de desenvolvimento Node configurado, e execute o comando:
+Certifique-se que esteja com seu ambiente de desenvolvimento Node configurado com gerenciador de pacote npm (ou outro de preferência), e execute o comando:
 ```
 npm install && npm run dev
 ```
-S
-Acesse o site pelo localhost na porta 5174, ou a porta que for escolhida para utilizar
+Acesse o site pelo localhost na porta 5174, ou a porta que for escolhida para executar a aplicação
 ```
 http://localhost:5174/
 ```
 ## 🪟 Layout
-
+Os registros estão sendo listados numa tabela, com um botão para Editar e Excluir. 
+(img)
+Através do botão "Cadastrar", é mostrado um formulário para preenchimento de novas informações. 
+(img)
+A validação foi implementada tanto na API como nas propriedades de validação dos componentes. Com o auxílio das classes de estilização do Bootstrap, os campos inválidos são destacados.
+(img)
+Foi utilizado a biblioteca sweetalert2 para emitir alertas estilizados para o usuário.
+(img)
 
 
 ## 🤔 Como contribuir para o projeto
