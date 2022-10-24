@@ -20,9 +20,9 @@ Certifique-se que esteja com seu ambiente de desenvolvimento Node configurado co
 ```
 npm install && npm run dev
 ```
-Acesse o site pelo localhost na porta 5174, ou a porta que for escolhida para executar a aplicação
+Acesse o site pelo localhost na porta 5173, ou a porta que for escolhida para executar a aplicação
 ```
-http://localhost:5174/
+http://localhost:5173/
 ```
 A aplicação reconhece a URL "http://localhost/api" como base de todos endpoints da API. Mas caso seja necessário trabalhar com outra URL, basta apenas alterar a URL base no arquivo ./src/services/api.jsx:
 ```jsx
